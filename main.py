@@ -53,7 +53,7 @@ def whatsapp():
         resp.message("Olá! Sou o assistente virtual 🤖\n\nDigite:\n*!cardapio* - Ver produtos\n*!pix* - Dados pra pagamento\n*!horario* - Funcionamento\n\nOu me faça uma pergunta que eu respondo com IA.")
 
     # 4. CHATGPT PRA TUDO RESTO
-    else:
+        else:
         try:
             completion = client.chat.completions.create(
                 model="gpt-4o-mini",
@@ -65,8 +65,8 @@ def whatsapp():
             resposta = completion.choices[0].message.content
             resp.message(resposta)
         except Exception as e:
-    print(f"ERRO OPENAI: {e}") # Isso aparece no log do Render
-    resp.message(f"Deu erro na IA: {e}")
+            print(f"ERRO OPENAI: {e}")
+            resp.message("Não consegui falar com a IA agora. Digite!cardapio pra ver os produtos.")
 
     return str(resp)
 
