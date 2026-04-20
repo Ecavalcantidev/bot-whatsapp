@@ -15,7 +15,7 @@ CARDAPIO = """
 Digite o número pra pedir
 """
 
-PIX = "Chave PIX: 85999999\nNome: Emerson Cavalcanti"
+PIX = "Chave PIX: ecavalcanti2017@gmail.com\nNome: Emerson Cavalcanti"
 HORARIO = "Funcionamos de Seg a Sáb, das 18h às 23h"
 ENDERECO = "Rua das Flores, 123 - Massapê, CE"
 
@@ -30,13 +30,13 @@ def whatsapp():
     resp = MessagingResponse()
 
     # 1. COMANDOS
-    if msg_lower == "!cardapio":
+    if msg_lower == "!cardapio" or msg_lower == "cardapio":
         resp.message(CARDAPIO)
-    elif msg_lower == "!preco":
+    elif msg_lower == "!preco" or msg_lower == "preco":
         resp.message(CARDAPIO)
-    elif msg_lower == "!pix":
+    elif msg_lower == "!pix" or msg_lower == "pix":
         resp.message(PIX)
-    elif msg_lower == "!horario":
+    elif msg_lower == "!horario" or msg_lower == "horario":
         resp.message(f"{HORARIO}\n{ENDERECO}")
 
     # 2. VENDAS - Pedido simples
@@ -53,7 +53,7 @@ def whatsapp():
         resp.message("Olá! Sou o assistente virtual 🤖\n\nDigite:\n*!cardapio* - Ver produtos\n*!pix* - Dados pra pagamento\n*!horario* - Funcionamento\n\nOu me faça uma pergunta que eu respondo com IA.")
 
     # 4. CHATGPT PRA TUDO RESTO
-        else:
+    else:
         try:
             completion = client.chat.completions.create(
                 model="gpt-4o-mini",
