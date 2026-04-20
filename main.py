@@ -64,8 +64,9 @@ def whatsapp():
             )
             resposta = completion.choices[0].message.content
             resp.message(resposta)
-        except:
-            resp.message("Não consegui processar agora. Digite!cardapio pra ver os produtos ou!horario pra info.")
+        except Exception as e:
+    print(f"ERRO OPENAI: {e}") # Isso aparece no log do Render
+    resp.message(f"Deu erro na IA: {e}")
 
     return str(resp)
 
